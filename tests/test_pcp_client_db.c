@@ -215,7 +215,7 @@ int main(void)
     pcp_ctx_t *ctx;
     PD_SOCKET_STARTUP();
     pcp_log_level = PCP_LOGLVL_NONE;
-    ctx = pcp_init(0, NULL);
+    ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
     TEST(ctx!=NULL);
     test_pcp_server_functions(ctx);
     test_pcp_flow_funcs(ctx);
