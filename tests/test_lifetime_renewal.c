@@ -32,9 +32,13 @@
 #include "pcp_socket.h"
 
 //terminal colors
+#ifndef WIN32
 #define KNRM  "\x1B[0m"
-#define KRED  "\x1B[31m"
-#define KGRN  "\x1B[32m"
+//#define KRED  "\x1B[31m"
+//#define KGRN  "\x1B[32m"
+#else
+#define KNRM  ""
+#endif
 
 static pcp_fstate_e test_wait(pcp_flow_t* flow, int timeout)
 {
