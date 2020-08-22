@@ -415,7 +415,7 @@ struct pcp_params {
 };
 
 static void parse_params(struct pcp_params *p, int argc, char *argv[]);
-
+static void cleanup_params(struct pcp_params *p);
 
 static inline unsigned long mix(unsigned long a, unsigned long b, unsigned long c)
 {
@@ -434,7 +434,7 @@ static inline unsigned long mix(unsigned long a, unsigned long b, unsigned long 
 
 int main(int argc, char *argv[])
 {
-    struct pcp_params p;
+	struct pcp_params p;
     struct sockaddr_storage destination_ip;
     struct sockaddr_storage source_ip;
     struct sockaddr_storage ext_ip;
@@ -592,6 +592,7 @@ int main(int argc, char *argv[])
     }
     printf("\n");
     pcp_terminate(p.ctx, 0);
+	cleanup_params(&p);
 
     PD_SOCKET_CLEANUP();
     return ret_val;
@@ -888,3 +889,14 @@ static void parse_params(struct pcp_params *p, int argc, char *argv[])
         exit(1);
     }
  }
+
+static void cleanup_params(struct pcp_params *p)
+{
+    struct pcp_server_list *el, **l=&p->pcp_servers;
+
+    while (*l) {
+		el = *l;
+		*l = (*l)->next;
+		free(el);
+    }
+}
