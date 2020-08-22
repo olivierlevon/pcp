@@ -48,7 +48,7 @@ int gettimeofday(struct timeval *tv, struct timezone *tz)
     FILETIME ft;
     unsigned __int64 tmpres=0;
     static int tzflag=0;
-    int tz_seconds=0;
+    long tz_seconds=0;
     int tz_daylight=0;
 
     if (NULL != tv) {
