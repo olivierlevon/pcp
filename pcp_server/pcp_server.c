@@ -40,7 +40,6 @@
 #include <signal.h>
 #include <ctype.h>
 #include "getopt.h"
-#include <unistd.h>
 #include "pcp_socket.h"
 
 #ifdef WIN32
@@ -57,6 +56,7 @@
 } while(0)
 
 #else //WIN32
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
