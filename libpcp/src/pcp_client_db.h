@@ -225,7 +225,7 @@ typedef int (*pcp_db_server_iterate)(pcp_server_t *f, void *data);
 
 pcp_flow_t *pcp_create_flow(pcp_server_t *s, struct flow_key_data *fkd);
 
-pcp_errno pcp_free_flow(pcp_flow_t *f);
+#define pcp_free_flow pcp_delete_flow_intern
 
 pcp_flow_t *pcp_get_flow(struct flow_key_data *fkd, pcp_server_t *s);
 
