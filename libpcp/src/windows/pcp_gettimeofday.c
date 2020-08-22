@@ -41,10 +41,7 @@
 /* custom implementation of the gettimeofday function
  for Windows platform. */
 
-struct timezone {
-    int tz_minuteswest; /* minutes W of Greenwich */
-    int tz_dsttime; /* type of dst correction */
-};
+#include "pcp_gettimeofday.h"
 
 int gettimeofday(struct timeval *tv, struct timezone *tz)
 {

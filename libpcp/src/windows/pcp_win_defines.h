@@ -78,8 +78,6 @@ static inline const char *pcp_inet_ntop(int af, const void *src, char *dst,
 
 #define snprintf _snprintf
 
-int gettimeofday(struct timeval *tv, struct timezone *tz);
-
 #define MSG_DONTWAIT    0x0
 
 #endif /*PCP_WIN_DEFINES*/

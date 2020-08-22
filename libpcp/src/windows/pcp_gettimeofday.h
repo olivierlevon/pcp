@@ -26,6 +26,14 @@
 #ifndef PCP_GETTIMEOFDAY
 #define PCP_GETTIMEOFDAY
 
+#include <time.h>
+
+struct timezone {
+    int tz_minuteswest; /* minutes W of Greenwich */
+    int tz_dsttime; /* type of dst correction */
+};
+
+
 int gettimeofday(struct timeval *tv, struct timezone *tz);
 
 #endif /*PCP_GETTIMEOFDAY*/
