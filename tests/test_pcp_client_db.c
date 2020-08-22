@@ -219,7 +219,7 @@ int main(void)
     TEST(ctx!=NULL);
     test_pcp_server_functions(ctx);
     test_pcp_flow_funcs(ctx);
-
+    pcp_terminate(ctx, 1);
     PD_SOCKET_CLEANUP();
     printf("Tests succeeded.\n\n");
     return 0;

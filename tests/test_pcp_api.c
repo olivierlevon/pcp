@@ -106,6 +106,8 @@ int main(void)
 
     printf("Tests succeeded.\n\n");
 
+    pcp_terminate(ctx, 1);
+
     PD_SOCKET_CLEANUP();
     return 0;
 }
