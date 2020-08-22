@@ -664,6 +664,7 @@ void pcp_terminate(pcp_ctx_t *ctx, int close_flows)
     pcp_db_foreach_flow(ctx, delete_flow_iter, close_flows ? (void *)1 : NULL);
     pcp_db_free_pcp_servers(ctx);
     pcp_socket_close(ctx);
+    free(ctx);
 }
 
 pcp_flow_info_t *pcp_flow_get_info(pcp_flow_t *f, size_t *info_count)
