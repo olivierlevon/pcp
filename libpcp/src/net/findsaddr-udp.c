@@ -37,6 +37,14 @@
 # include <sys/types.h>
 # include <sys/socket.h>
 #include <netinet/in.h>
+
+#ifndef SOCKET
+#define SOCKET int
+#endif
+
+#ifndef INVALID_SOCKET
+#define INVALID_SOCKET -1
+#endif
 #else
 # include <winsock2.h>
 # include <ws2tcpip.h> /*sockaddr, addrinfo etc.*/
@@ -60,13 +68,6 @@
  * best-guessing ourselves.
  */
 
-#ifndef SOCKET
-#define SOCKET int
-#endif
-
-#ifndef INVALID_SOCKET
-#define INVALID_SOCKET -1
-#endif
 
 const char *findsaddr(register const struct sockaddr_in *to,
         struct in6_addr *from)
