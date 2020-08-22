@@ -41,7 +41,7 @@
 
 typedef uint16_t in_port_t;
 
-#if 1 //WINVER<NTDDI_VISTA
+#if 0 //WINVER<NTDDI_VISTA
 static inline const char *pcp_inet_ntop(int af, const void *src, char *dst,
         int cnt)
 {
