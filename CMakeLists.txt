@@ -12,9 +12,6 @@ add_definitions(-DPCP_USE_IPV6_SOCKET)
 endif()
 
 if (WIN32)
-	# In Visual Studio, forces the set of available configurations to be CMAKE_BUILD_TYPE only.
-    set(CMAKE_CONFIGURATION_TYPES ${CMAKE_BUILD_TYPE} CACHE STRING "" FORCE)
-	
 	# These two libs are needed by windows, for socket operations
 	set (WIN_SOCK_LIBS
 	${WIN_SOCK_LIBS}ws2_32.lib
