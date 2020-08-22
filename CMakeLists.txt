@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.13)
 
 set(WITH_EXPERIMENTAL ON CACHE BOOL "Experimental extensions suppport")
 set(USE_IPV6_SOCKET ON CACHE BOOL "Use IPv6 socket")
