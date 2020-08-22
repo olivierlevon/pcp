@@ -21,6 +21,7 @@
 #include <assert.h>
 
 #ifdef WIN32
+#include "pcp_gettimeofday.h"
 #include <winsock2.h>
 #include <windows.h>
 #else

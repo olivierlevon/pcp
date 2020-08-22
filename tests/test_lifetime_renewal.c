@@ -22,6 +22,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#else
+#include "pcp_gettimeofday.h"
 #endif
 #include <time.h>
 #include "pcp.h"
