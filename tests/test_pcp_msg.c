@@ -229,6 +229,8 @@ int main(void)
             }
             TEST(build_pcp_msg(&fs)!=NULL);
             TEST(fs.pcp_msg_len<=PCP_MAX_LEN);
+			free(fs.pcp_msg_buffer);
+			free(fs.md_vals);
         }
 #endif
         TEST(build_pcp_msg(NULL)==NULL);

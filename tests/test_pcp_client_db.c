@@ -159,6 +159,7 @@ static void test_pcp_flow_funcs(pcp_ctx_t *ctx)
     TEST(pcp_db_add_flow(pcp_create_flow(get_pcp_server(ctx, 0), &fkd2))== PCP_ERR_SUCCESS);
     TEST(pcp_db_add_flow(pcp_create_flow(get_pcp_server(ctx, 0), &fkd2))== PCP_ERR_SUCCESS);
     TEST(pcp_db_rem_flow(f2)==PCP_ERR_SUCCESS);
+	pcp_free_flow(f2);
 
     f2 = pcp_create_flow(get_pcp_server(ctx, 0), &fkd);
     TEST(f2!=NULL);
