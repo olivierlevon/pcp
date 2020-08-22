@@ -19,7 +19,7 @@ int main()
     dst.sin_family = AF_INET;
     dst.sin_port = htons(80);
     inet_pton(AF_INET, "www.google.com", &dst.sin_addr.s_addr);
-    s=socket(s, SOCK_STREAM, 0);
+    s=socket(AF_INET, SOCK_STREAM, 0);
     connect(s, (struct sockaddr *) &dst, sizeof(dst));
     getsockname(s, (struct sockaddr *) &src, &src_len);
 
