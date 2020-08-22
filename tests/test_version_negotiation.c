@@ -90,8 +90,10 @@ int main(int argc, char *argv[]) {
     flow = NULL;
     free(flow_info);
 
-    PD_SOCKET_CLEANUP();
     pcp_terminate(ctx, 0);
+
+    PD_SOCKET_CLEANUP();
+
     return 0;
 
 }

@@ -101,6 +101,8 @@ int main(void)
     printf("\nFinal statuses of PCP servers:\n");
     pcp_db_foreach_server(ctx, print_status, NULL);
 
+    pcp_terminate(ctx, 0);
+
     PD_SOCKET_CLEANUP();
 
     return 0;

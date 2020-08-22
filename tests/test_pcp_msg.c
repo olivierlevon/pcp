@@ -234,6 +234,8 @@ int main(void)
         TEST(build_pcp_msg(NULL)==NULL);
     }
 
+    pcp_terminate(ctx, 0);
+
     PD_SOCKET_CLEANUP();
     return 0;
 }

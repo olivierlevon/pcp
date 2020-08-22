@@ -203,6 +203,8 @@ int main(void)
     pcp_pulse(ctx, NULL);
     TEST(s->server_state==pss_not_working);
 
+    pcp_terminate(ctx, 1);
+
     PD_SOCKET_CLEANUP();
 
     return 0;

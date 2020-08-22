@@ -77,8 +77,9 @@ int main(void)
     pcp_delete_flow(flow);
     flow = NULL;
 
-    PD_SOCKET_CLEANUP();
     pcp_terminate(ctx, 0);
+
+    PD_SOCKET_CLEANUP();
 
     return 0;
 }
