@@ -56,7 +56,7 @@ static int pcp_win_sock_startup() {
     int err;
     WORD wVersionRequested;
     WSADATA wsaData;
-    OSVERSIONINFOEX osvi;
+
     /* Use the MAKEWORD(lowbyte, highbyte) macro declared in Windef.h */
     wVersionRequested = MAKEWORD(2, 2);
     err = WSAStartup(wVersionRequested, &wsaData);
@@ -64,14 +64,6 @@ static int pcp_win_sock_startup() {
         /* Tell the user that we could not find a usable */
         /* Winsock DLL.                                  */
         perror("WSAStartup failed with error");
-        return 1;
-    }
-    //find windows version
-    ZeroMemory(&osvi, sizeof(osvi));
-    osvi.dwOSVersionInfoSize = sizeof(osvi);
-
-    if(!GetVersionEx((LPOSVERSIONINFO)(&osvi))){
-        printf("pcp_app: GetVersionEx failed");
         return 1;
     }
 
