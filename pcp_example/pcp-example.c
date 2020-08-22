@@ -1,18 +1,40 @@
-#include <pcp.h>
-#include <sys/types.h>
-#include <sys/socket.h>
 #include <stdio.h>
 #include <string.h>
+
+#ifdef WIN32
+
+
+#include <winsock2.h>
+#include <ws2tcpip.h> 
+
+#define CLOSE(sockfd) closesocket(sockfd)
+
+#else
+
+#include <sys/types.h>
+#include <sys/socket.h>
+
+#define SOCKET int
+#define CLOSE(sockfd) close(sockfd)
+
+#endif
+
+#include <pcp.h>
 
 int main()
 {
     struct sockaddr_in src;
     struct sockaddr_in dst;
-    int s;
+    SOCKET s;
     socklen_t src_len = sizeof(src);
     pcp_flow_t *f;
     pcp_ctx_t *ctx;
     char buff[1024];
+
+#ifdef WIN32
+    WSADATA wsaData;
+    (void)WSAStartup(MAKEWORD(2, 2), &wsaData);
+#endif
 
     memset(buff, 0, sizeof(buff));
 
@@ -31,9 +53,14 @@ int main()
     recv(s, buff, sizeof(buff), 0);
     printf("RESULT: %s\n", buff);
 
-    close(s);
+    CLOSE(s);
     pcp_close_flow(f);
 
     pcp_terminate(ctx, 1);
+	
+#ifdef WIN32
+    (void)WSACleanup();
+#endif	
+	
     return 0;
 }
