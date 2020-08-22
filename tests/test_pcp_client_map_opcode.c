@@ -47,7 +47,7 @@ int main(void)
     PD_SOCKET_STARTUP();
     pcp_log_level = PCP_LOGLVL_DEBUG;
 
-    TEST((ctx=pcp_init(0, NULL)));
+    TEST((ctx=pcp_init(DISABLE_AUTODISCOVERY, NULL)));
     TEST(pcp_add_server(ctx, Sock_pton("127.0.0.1:5351"), 2)==0);
 
     sock_pton("0.0.0.0:1234", (struct sockaddr*) &destination);

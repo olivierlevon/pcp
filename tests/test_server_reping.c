@@ -56,7 +56,7 @@ int main(void)
     printf("####   *****************************     ####\n");
     printf("#############################################\n");
 
-    ctx = pcp_init(0, NULL);
+    ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
 
     sock_pton(":1111", (struct sockaddr*) &source_ip4);
 
@@ -76,7 +76,7 @@ int main(void)
     TEST(s->server_state == pss_wait_io);
     pcp_terminate(ctx, 1);
 
-    ctx = pcp_init(0, NULL);
+    ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
     s=get_pcp_server(ctx, pcp_add_server(ctx, Sock_pton("127.0.0.1:5351"), 2));
 
     flow = pcp_new_flow(ctx, (struct sockaddr*)&source_ip4,
@@ -98,7 +98,7 @@ int main(void)
     TEST(s->server_state == pss_wait_io);
     pcp_terminate(ctx, 1);
 
-    ctx = pcp_init(0, NULL);
+    ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
     s=get_pcp_server(ctx, pcp_add_server(ctx, Sock_pton("127.0.0.1:5351"), 2));
 
     flow = pcp_new_flow(ctx, (struct sockaddr*)&source_ip4,
@@ -117,7 +117,7 @@ int main(void)
 
     pcp_terminate(ctx, 1);
 
-    ctx = pcp_init(0, NULL);
+    ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
     s=get_pcp_server(ctx, pcp_add_server(ctx, Sock_pton("1.1.1.1:5351"), 2));
     flow = pcp_new_flow(ctx, (struct sockaddr*)&source_ip4,
                         NULL,

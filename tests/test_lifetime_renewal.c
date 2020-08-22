@@ -143,7 +143,7 @@ int main(int argc, char *argv[] UNUSED) {
 
     pcp_log_level = argc>1?PCP_LOGLVL_DEBUG:PCP_LOGLVL_INFO;
 
-    ctx = pcp_init(0, NULL);
+    ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
     pcp_add_server(ctx, Sock_pton("127.0.0.1"), 2);
 
 

@@ -30,7 +30,7 @@ int main(void)
     pcp_ctx_t * ctx;
     pcp_log_level = PCP_LOGLVL_NONE;
     PD_SOCKET_STARTUP();
-    ctx = pcp_init(0, NULL);
+    ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
 #ifndef PCP_DISABLE_NATPMP
     {   // TEST NATPMP - parsing
         nat_pmp_announce_resp_t natpmp_a;

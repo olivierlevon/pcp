@@ -51,7 +51,7 @@ int main(void)
     memset(&destination, 0, sizeof(destination));
     memset(&ext, 0, sizeof(ext));
 
-    ctx = pcp_init(0, NULL);
+    ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
     TEST(ctx);
     TEST(pcp_add_server(ctx, Sock_pton("127.0.0.1:5351"), 2)==0);
 
