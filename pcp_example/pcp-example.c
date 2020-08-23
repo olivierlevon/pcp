@@ -12,6 +12,7 @@
 #else
 
 #include <sys/types.h>
+#include <unistd.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
