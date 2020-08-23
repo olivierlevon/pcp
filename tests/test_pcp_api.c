@@ -40,7 +40,6 @@ int main(void)
     ctx = pcp_init(ENABLE_AUTODISCOVERY, NULL);
     TEST(get_pcp_server(ctx, 0)!=NULL);
     pcp_terminate(ctx, 1);
-    TEST(get_pcp_server(ctx, 0)==NULL);
 
     ctx = pcp_init(DISABLE_AUTODISCOVERY, NULL);
     TEST(pcp_add_server(ctx, Sock_pton("127.0.0.1:5351"), 2)==0);
